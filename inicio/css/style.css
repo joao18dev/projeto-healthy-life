@@ -1,0 +1,120 @@
+:root {
+  --primary: hsl(139, 59%, 73%);
+  --primary-dark: hsl(140, 55%, 70%);
+  --secondary: hsl(150 50% 15%);
+  --quarto: hsl(140 20% 45%);
+  --terciaria: hsl(150, 68%, 36%);
+  --background: hsl(140 60% 97%);
+  --foreground: hsl(174, 38%, 16%);
+  --muted: hsl(148, 57%, 51%);
+  --muted-foreground: hsl(173, 20%, 26%);
+  --danger: hsl(180, 30%, 18%);
+  --card: hsl(126, 44%, 75%);
+  --border: hsl(50, 25%, 100%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--muted);
+}
+
+.container {
+  width: 80%;
+  height: 80vh;
+  display: flex;
+  box-shadow: 5px 5px 10px var(--muted-foreground);
+  border-radius: 20px;
+}
+
+.form-image img{
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 30px;
+}
+
+.form {
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--background);
+  border-radius: 20px;
+  padding: 3rem;
+}
+
+.form-header {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-header h1{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  margin-top: -10px;
+}
+
+.form-header h1::after{
+  content: '';
+  display: block;
+  width: 5rem;
+  height: 0.3rem;
+  background-color: var(--muted);
+  margin: 0 auto;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.form-header p{
+  margin-top: 50px;
+  margin-left: -27px;
+  color: var(--foreground);
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 1000;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 140px;
+}
+
+.btn button {
+  margin-left: -170px;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--terciaria);
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  color: var(--background);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.btn button:hover{
+  background-color: var(--muted);
+  transition: 0.5s;
+}
+
+.btn button a{
+  text-decoration: none;
+  color: var(--background);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}

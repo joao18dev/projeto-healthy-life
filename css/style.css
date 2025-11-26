@@ -21,100 +21,155 @@
 
 body {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--muted);
+  padding: 20px;
 }
 
 .container {
-  width: 80%;
-  height: 80vh;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 70vh;
+
   display: flex;
+  gap: 20px;
+
   box-shadow: 5px 5px 10px var(--muted-foreground);
   border-radius: 20px;
+  overflow: hidden;
+
+  background: white;
 }
 
-.form-image img{
-  width: 90%;
+/* ---------------------- */
+/*       LADO ESQUERDO    */
+/* ---------------------- */
+.form-image {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.form-image img {
+  width: 90%;
+  max-width: 400px;
+  height: auto;
   padding: 1rem;
   border-radius: 30px;
 }
 
+/* ---------------------- */
+/*       LADO DIREITO     */
+/* ---------------------- */
 .form {
-  width: 65%;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: var(--background);
-  border-radius: 20px;
-  padding: 3rem;
+  padding: 2rem;
+  text-align: center;
 }
 
-.form-header {
-  margin-bottom: 3rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.form-header h1{
+.form-header h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: var(--muted-foreground);
-  margin-top: -10px;
 }
 
-.form-header h1::after{
+.form-header h1::after {
   content: '';
   display: block;
   width: 5rem;
   height: 0.3rem;
   background-color: var(--muted);
-  margin: 0 auto;
-  position: absolute;
+  margin: 0.5rem auto;
   border-radius: 10px;
 }
 
-.form-header p{
-  margin-top: 50px;
-  margin-left: -27px;
+.form-header p {
+  margin-top: 20px;
   color: var(--foreground);
   font-size: 15px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 1000;
+  font-weight: 600;
 }
 
+/* ---------------------- */
+/*       BOTÕES           */
+/* ---------------------- */
+
 .btn {
+  margin-top: 30px;
   display: flex;
-  align-items: center;
-  gap: 140px;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btn button {
-  margin-left: -170px;
   border: none;
   border-radius: 30px;
   background-color: var(--terciaria);
-  padding: 0.7rem 1.4rem;
+  padding: 0.8rem 2rem;
   cursor: pointer;
   color: var(--background);
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
 
-.btn button:hover{
+.btn button:hover {
   background-color: var(--muted);
-  transition: 0.5s;
+  transition: 0.4s;
 }
 
-.btn button a{
-  text-decoration: none;
-  color: var(--background);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+/* =============================== */
+/*        RESPONSIVIDADE MOBILE   */
+/* =============================== */
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  .form-image img {
+    max-width: 250px;
+  }
+
+  .form {
+    padding: 1.5rem;
+  }
+
+  .form-header p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .form-header h1 {
+    font-size: 26px;
+  }
+
+  .form-header p {
+    font-size: 13px;
+  }
+
+  .btn {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn button {
+    width: 100%;
+    max-width: 280px;
+  }
 }

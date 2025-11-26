@@ -1,154 +1,497 @@
+/* =========================
+   Healthy Life - style.css
+   Arquivo completo (substituir o atual)
+   ========================= */
+
+:root {
+  --primary: hsl(139, 59%, 73%);
+  --primary-dark: hsl(140, 55%, 70%);
+  --secondary: hsl(150 50% 15%);
+  --quarto: hsl(140 20% 45%);
+  --terciaria: hsl(150 70% 40%);
+  --background: hsl(140 60% 97%);
+  --foreground: hsl(174, 38%, 16%);
+  --muted-foreground: hsl(0, 0%, 0%);
+  --danger: hsl(0 70% 30%);
+  --card: hsl(126, 44%, 75%);
+  --border: hsl(50, 25%, 100%);
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Body e container principal */
+body {
+  background-color: var(--background);
+  color: var(--muted-foreground);
+  font-family: "Montserrat", "Poppins", sans-serif;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* interface central */
+.interface {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Util */
+.flex {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* HEADER */
+header {
+  background-color: var(--border);
+  padding: 22px 0;
+  box-shadow: 0 0 40px 10px #ffffff1d;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+header > .interface {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.logo h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--terciaria);
+  line-height: 1;
+}
+
+/* NAV MENU */
+header nav.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+header nav.menu ul li {
+  display: inline-block;
+}
+
+header nav.menu a {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  padding: 6px 8px;
+  transition: transform .18s ease, color .18s ease;
+}
+
+header nav.menu a:hover {
+  transform: translateY(-2px);
+  color: var(--terciaria);
+}
+
 /* ===========================
-   RESPONSIVIDADE - MOBILE
+   TOPO DO SITE / HERO
    =========================== */
+.topo-do-site {
+  padding: 40px 0;
+}
+
+.topo-do-site .interface .flex {
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* Bloco de texto do topo */
+.texto-topo {
+  flex: 1;
+  min-width: 260px;
+}
+
+.topo-do-site h1 {
+  color: var(--danger);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.topo-do-site h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1.05;
+  margin: 12px 0;
+  color: var(--foreground);
+}
+
+.topo-do-site h2 span {
+  color: var(--terciaria);
+  font-size: 40px;
+  display: inline-block;
+}
+
+/* Parágrafo hero */
+.topo-do-site p {
+  margin-top: 16px;
+  color: var(--foreground);
+  font-size: 18px;
+  font-weight: 500;
+  max-width: 720px;
+}
+
+/* Imagem do topo */
+.img-topo {
+  flex: 0 0 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-topo img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 16px;
+  position: relative;
+  animation: flutuar 3s ease-in-out infinite alternate;
+}
+
+/* Animação suave */
+@keyframes flutuar {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-12px); }
+}
+
+/* ===========================
+   SEÇÃO GUIA/EXERCÍCIOS
+   =========================== */
+.guia {
+  padding: 40px 0;
+}
+
+.exercicio h1 {
+  font-size: 30px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: var(--terciaria);
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+/* Apresentação de texto */
+.apresentacao p {
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--muted-foreground);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: left;
+  padding: 0 10px;
+}
+
+/* ===========================
+   CAIXA DE IA (CHAT) - PADRÃO
+   =========================== */
+.IA {
+  width: 600px;
+  max-width: 95%;
+  margin: 32px auto;
+  background-color: var(--terciaria);
+  padding: 1.6rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  color: var(--border);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* título dentro da IA */
+.IA .guia-exercicio h1 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--border);
+}
+
+/* chat box (vazio por enquanto) */
+#chat-box {
+  min-height: 100px;
+  max-height: 220px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 8px;
+}
+
+/* input e botão */
+.IA .mensagem {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.08);
+  outline: none;
+  height: 48px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  background-color: var(--background);
+}
+
+.IA .mensagem:focus {
+  box-shadow: 0 0 8px rgba(0,0,0,0.08);
+}
+
+.IA .botao {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: var(--background);
+  color: var(--muted-foreground);
+  font-weight: 700;
+}
+
+/* ===========================
+   RODAPÉ (FOOTER)
+   =========================== */
+footer {
+  background-color: var(--terciaria);
+  padding: 36px 0 40px 0;
+  margin-top: 40px;
+  box-shadow: 0 0 40px 10px #ffffff1d;
+  color: var(--border);
+}
+
+.roda-pe .interface {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.linha-rodape .logo-rodape h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--border);
+}
+
+.linha-rodape .logo-rodape p {
+  margin-top: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: var(--border);
+  max-width: 520px;
+}
+
+.linha-rodape button {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 8px;
+  background: var(--background);
+  color: var(--muted-foreground);
+}
+
+/* linha inferior do rodapé */
+.linha-rodape2 .mensagem {
+  margin-top: 18px;
+  color: var(--border);
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+   =========================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+
+  .topo-do-site .interface .flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .img-topo {
+    order: 2;
+    width: 60%;
+    max-width: 360px;
+  }
+
+  .texto-topo {
+    order: 1;
+    width: 100%;
+  }
+
+  .topo-do-site h2 span {
+    font-size: 36px;
+  }
+
+  .IA {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .apresentacao p {
+    font-size: 15px;
+  }
+
+  header nav.menu ul {
+    gap: 16px;
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
 
-  body {
-    overflow-x: hidden;
-  }
-
-  .flex {
+  /* Header: empilha logo + menu */
+  header > .interface {
     flex-direction: column;
-    text-align: center;
-  }
-
-  /* HEADER */
-  header {
-    padding: 15px 4%;
-  }
-
-  header nav ul li {
-    padding: 10px 0;
-    display: block;
-  }
-
-  .menu ul {
-    text-align: center;
-  }
-
-  /* LOGO */
-  .logo {
-    display: flex;
+    gap: 12px;
     align-items: center;
-    gap: 10px;
   }
 
+  header nav.menu ul {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  header nav.menu ul li {
+    padding: 8px 0;
+  }
+
+  /* Logo */
   .logo img {
-    margin: 0;
     width: 60px;
     height: 60px;
   }
 
   .logo h1 {
-    margin: 0;
     font-size: 18px;
   }
 
-  /* SEÇÃO TOPO */
-  .topo-do-site .img-topo img {
-    width: 250px;
-    height: auto;
-    margin: 20px auto 0 auto;
-  }
-
-  .topo-do-site h1 {
-    margin: 0;
-    font-size: 18px;
-  }
-
-  .topo-do-site h2 {
-    margin: 10px 0;
-    font-size: 24px;
-  }
-
-  .topo-do-site h2 span {
-    font-size: 32px;
-  }
-
-  .topo-do-site p {
-    margin: 10px auto;
-    font-size: 15px;
-    max-width: 90%;
-  }
-
-  /* APRESENTAÇÃO */
-  .apresentacao p {
-    margin: 40px auto 0 auto;
-    font-size: 14px;
-    text-align: left;
-    width: 90%;
-  }
-
-  /* CAIXA DE IA */
-  .IA {
-    width: 90%;
-    margin: 40px auto 0 auto;
-    height: auto;
-  }
-
-  .IA .guia-exercicio h1 {
-    font-size: 20px;
-  }
-
-  .IA .mensagem {
-    margin-top: 15px;
-  }
-
-  .IA .botao {
-    margin-top: 20px;
-    width: 100%;
-  }
-
-  /* FOOTER */
-  footer {
-    margin-top: 100px;
-    padding: 20px 4%;
-  }
-
-  footer .flex {
-    flex-direction: column;
+  /* Topo: empilha e centraliza */
+  .topo-do-site .interface .flex {
+    flex-direction: column-reverse;
+    gap: 18px;
     align-items: center;
     text-align: center;
   }
 
-  .linha-rodape h1,
-  .linha-rodape p,
-  .linha-rodape2 .mensagem {
-    margin: 10px 0;
-    font-size: 16px;
+  .img-topo {
+    width: 90%;
+    max-width: 320px;
   }
 
-  .linha-rodape button {
+  .topo-do-site h1 {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .topo-do-site h2 {
+    font-size: 22px;
+    margin: 6px 0;
+  }
+
+  .topo-do-site h2 span {
+    font-size: 28px;
+  }
+
+  .topo-do-site p {
+    font-size: 15px;
+    max-width: 92%;
+    margin: 8px auto 0 auto;
+  }
+
+  /* Apresentação texto */
+  .apresentacao p {
     margin: 20px auto 0 auto;
+    width: 92%;
+    text-align: left;
+    font-size: 14px;
   }
 
-}
-
-
-/* ===========================
-   RESPONSIVO - TABLET
-   =========================== */
-@media (max-width: 1024px) {
-
-  .interface {
-    padding: 0 20px;
-  }
-
-  .flex {
-    align-items: center;
-  }
-
-  .topo-do-site .img-topo img {
-    width: 320px;
-  }
-
+  /* IA box ocupa largura e fica mais vertical */
   .IA {
-    width: 80%;
-    margin: 50px auto 0 auto;
+    width: 95%;
+    padding: 1rem;
+    margin: 20px auto;
   }
 
-  footer {
-    padding: 40px;
+  .IA .botao {
+    width: 100%;
   }
 
+  /* Footer: empilha conteúdo */
+  .roda-pe .interface {
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .linha-rodape .logo-rodape p,
+  .linha-rodape2 .mensagem {
+    font-size: 14px;
+  }
 }
+
+/* ajustes finais - para telas muito estreitas */
+@media (max-width: 420px) {
+  .topo-do-site h2 span {
+    font-size: 24px;
+  }
+
+  .img-topo {
+    max-width: 260px;
+  }
+
+  .apresentacao p {
+    font-size: 13px;
+    width: 95%;
+  }
+}
+
+

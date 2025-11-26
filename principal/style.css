@@ -254,13 +254,6 @@ footer .flex{
     justify-content: space-between;
 }
 
-@media (max-width: 768px) {
-  .boxes {
-    flex-direction: column;
-  }
-}
-
-
 .linha-rodape button{
 
     width: 50px;

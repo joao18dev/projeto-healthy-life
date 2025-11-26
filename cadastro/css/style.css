@@ -21,133 +21,192 @@
 
 body {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   background-color: var(--muted);
+  padding: 20px;
 }
 
+/* ======================= */
+/* CONTAINER GERAL         */
+/* ======================= */
 .container {
-  width: 80%;
-  height: 80vh;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 70vh;
+
   display: flex;
-  box-shadow: 5px 5px 10px var(--muted-foreground);
+  gap: 20px;
+  overflow: hidden;
+
+  background: white;
   border-radius: 20px;
+  box-shadow: 5px 5px 10px var(--muted-foreground);
 }
 
-.form-image img{
-  width: 90%;
+/* ======================= */
+/* IMAGEM DA ESQUERDA      */
+/* ======================= */
+.form-image {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.form-image img {
+  width: 90%;
+  max-width: 350px;
+  height: auto;
   padding: 1rem;
   border-radius: 30px;
 }
 
+/* ======================= */
+/* FORMULÁRIO              */
+/* ======================= */
 .form {
-  width: 65%;
+  flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem;
   background-color: var(--background);
-  border-radius: 20px;
-  padding: 3rem;
 }
 
+/* ======================= */
+/* HEADER DO FORM          */
+/* ======================= */
 .form-header {
-  margin-bottom: 3rem;
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-.form-header h1{
+.form-header h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: var(--muted-foreground);
 }
 
-.form-header h1::after{
+.form-header h1::after {
   content: '';
   display: block;
   width: 5rem;
   height: 0.3rem;
+
   background-color: var(--muted);
-  margin: 0 auto;
-  position: absolute;
+  margin: 0.5rem auto;
+
   border-radius: 10px;
 }
 
-.login-button {
-  display: flex;
-  align-items: center;
-}
-
-.login-button button {
-  border: none;
-  border-radius: 30px;
-  background-color: var(--terciaria);
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-}
-
-.login-button button:hover{
-  background-color: var(--muted);
-  transition: 0.5s;
-}
-
-.login-button button a{
-  text-decoration: none;
-  color: var(--background);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-}
+/* ======================= */
+/* CAMPOS DO FORM          */
+/* ======================= */
 
 .input-group {
+  width: 100%;
+  margin-top: 10px;
+
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 1rem;
+  gap: 20px;
 }
 
 .input-box {
+  flex: 1 1 45%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.1rem;
 }
 
-.input-box input{
-  margin: 5px 0;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 1px 1px 6px #0000001c;
-}
-
-.input-box input:hover {
-  border: none;
-  background-color: #eeeeee75;
-}
-
-.input-group label{
+.input-box label {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: var(--muted-foreground);
+  margin-bottom: 5px;
+}
+
+.input-box input {
+  padding: 10px;
+  border: none;
+
+  border-radius: 12px;
+  box-shadow: 1px 1px 6px #0000001c;
+
+  font-size: 15px;
+}
+
+.input-box input:hover {
+  background-color: #eeeeee75;
+}
+
+/* ======================= */
+/* BOTÃO CONTINUAR         */
+/* ======================= */
+
+.continue-button {
+  margin-top: 25px;
+  text-align: center;
 }
 
 .continue-button button {
   border: none;
   border-radius: 30px;
   background-color: var(--terciaria);
-  padding: 0.5rem 1rem;
+
+  padding: 0.7rem 2rem;
   cursor: pointer;
   color: var(--background);
+
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
+  font-size: 15px;
 }
 
-.continue-button button:hover{
+.continue-button button:hover {
   background-color: var(--muted);
-  transition: 0.5s;
+  transition: 0.4s;
+}
+
+/* ==================================== */
+/* RESPONSIVIDADE - TABLET E CELULAR   */
+/* ==================================== */
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+
+  .form {
+    padding: 2rem;
+  }
+
+  .form-image img {
+    max-width: 250px;
+  }
+
+  .input-box {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-header h1 {
+    font-size: 26px;
+  }
+
+  .input-box input {
+    font-size: 14px;
+    padding: 9px;
+  }
+
+  .continue-button button {
+    width: 100%;
+    max-width: 300px;
+  }
 }

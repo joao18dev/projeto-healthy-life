@@ -1,6 +1,4 @@
-/* ---------------------- */
-/* VARIÁVEIS E RESET */
-/* ---------------------- */
+
 :root {
   --primary: hsl(139, 59%, 73%);
   --primary-dark: hsl(140, 55%, 70%);
@@ -36,10 +34,6 @@ body {
   display: flex;
 }
 
-/* ---------------------- */
-/* HEADER */
-/* ---------------------- */
-
 header {
   padding: 25px 4%;
   background-color: var(--border);
@@ -62,6 +56,7 @@ header nav ul li {
 }
 
 header a {
+  font-family: 'Poppins', sans-serif;
   display: inline-block;
   color: var(--muted-foreground);
   text-decoration: none;
@@ -72,9 +67,6 @@ header a:hover {
   transform: scale(1.2);
 }
 
-/* ---------------------- */
-/* LOGO */
-/* ---------------------- */
 
 .logo img {
   width: 80px;
@@ -90,9 +82,7 @@ header a:hover {
   margin-left: 10px;
 }
 
-/* ---------------------- */
-/* TOPO DO SITE */
-/* ---------------------- */
+
 
 .topo-do-site {
   padding: 40px 4%;
@@ -139,9 +129,6 @@ section.topo-do-site .flex {
   animation: flutuar 2s ease-in-out infinite alternate;
 }
 
-/* ---------------------- */
-/* GUIA/IA */
-/* ---------------------- */
 
 .apresentacao p {
   margin-top: 50px;
@@ -164,9 +151,7 @@ section.topo-do-site .flex {
   width: 100%;
 }
 
-/* ---------------------- */
-/* FOOTER */
-/* ---------------------- */
+
 
 footer {
   background-color: var(--terciaria);
@@ -180,11 +165,23 @@ footer .flex {
   gap: 20px;
 }
 
-/* ---------------------- */
-/* MEDIA QUERIES */
-/* ---------------------- */
+.logo-rodape h1{
+  font-family: 'Poppins', sans-serif;
+}
 
-/* 📱 MOBILE */
+.linha-rodape button{
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.logo-rodape i{
+  width: 40px;
+  height: 40px;
+}
+
 @media (max-width: 768px) {
 
   header > .interface {

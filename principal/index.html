@@ -15,6 +15,59 @@
     <title>Healthy Life</title>
 </head>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const btn = document.querySelector(".ia-send-btn");
+        const textarea = document.getElementById("iaPergunta");
+
+        // Criar área para mostrar respostas
+        const chatArea = document.querySelector(".ia-chat-area");
+        const respostaBox = document.createElement("div");
+        respostaBox.classList.add("ia-resposta");
+        chatArea.appendChild(respostaBox);
+
+        btn.addEventListener("click", async () => {
+            const pergunta = textarea.value.trim();
+
+            if (pergunta === "") {
+                respostaBox.innerHTML = "<p style='color:red;'>Digite uma pergunta primeiro.</p>";
+                return;
+            }
+
+            respostaBox.innerHTML = "<p><em>Aguarde... consultando IA 🔄</em></p>";
+
+            try {
+                const resposta = await fetch("http://localhost:3000/api/ia/chat", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ mensagem: pergunta })
+                });
+
+                const data = await resposta.json();
+
+                if (data.resposta) {
+                    respostaBox.innerHTML = `
+                        <h3>Resposta da IA:</h3>
+                        <p>${data.resposta}</p>
+                    `;
+                } else {
+                    respostaBox.innerHTML = "<p style='color:red;'>Erro ao processar resposta.</p>";
+                }
+
+            } catch (error) {
+                console.log(error);
+                respostaBox.innerHTML = "<p style='color:red;'>Erro ao conectar ao servidor.</p>";
+            }
+
+        });
+
+    });
+</script>
+
+
 <body>
 
     <header>
@@ -78,11 +131,11 @@
             <p>
                 Bem-vindo ao Guia de Exercícios Inteligente,
                 uma nova forma de cuidar do seu corpo com tecnologia e precisão. <br>
-                Este guia foi desenvolvido para oferecer treinos personalizados, eficientes e acessíveis, 
+                Este guia foi desenvolvido para oferecer treinos personalizados, eficientes e acessíveis,
                 combinando <br>
                 ciência do movimento humano com o poder da Inteligência Artificial. <br>
                 <br>
-                Aqui, cada exercício, sugestão e ajuste é gerado a partir da análise do seu perfil, 
+                Aqui, cada exercício, sugestão e ajuste é gerado a partir da análise do seu perfil,
                 objetivos e nível atual de condicionamento. <br>
                 A IA acompanha sua evolução, identifica pontos de melhoria e adapta o treinamento em tempo real, <br>
                 garantindo que você avance de maneira segura, consistente e motivadora. <br>

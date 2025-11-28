@@ -21,6 +21,8 @@
         const btn = document.querySelector(".ia-send-btn");
         const textarea = document.getElementById("iaPergunta");
 
+        const API_URL = "https://backendhealthylife-production.up.railway.app/api/ia/chat";
+
         // Criar área para mostrar respostas
         const chatArea = document.querySelector(".ia-chat-area");
         const respostaBox = document.createElement("div");
@@ -30,7 +32,7 @@
         btn.addEventListener("click", async () => {
             const pergunta = textarea.value.trim();
 
-            if (pergunta === "") {
+            if (!pergunta) {
                 respostaBox.innerHTML = "<p style='color:red;'>Digite uma pergunta primeiro.</p>";
                 return;
             }
@@ -38,7 +40,7 @@
             respostaBox.innerHTML = "<p><em>Aguarde... consultando IA 🔄</em></p>";
 
             try {
-                const resposta = await fetch("http://localhost:3000/api/ia/chat", {
+                const resposta = await fetch(API_URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -50,9 +52,9 @@
 
                 if (data.resposta) {
                     respostaBox.innerHTML = `
-                        <h3>Resposta da IA:</h3>
-                        <p>${data.resposta}</p>
-                    `;
+                    <h3>Resposta da IA:</h3>
+                    <p>${data.resposta}</p>
+                `;
                 } else {
                     respostaBox.innerHTML = "<p style='color:red;'>Erro ao processar resposta.</p>";
                 }
@@ -61,11 +63,13 @@
                 console.log(error);
                 respostaBox.innerHTML = "<p style='color:red;'>Erro ao conectar ao servidor.</p>";
             }
-
         });
 
     });
 </script>
+
+
+
 
 
 <body>

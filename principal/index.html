@@ -15,63 +15,6 @@
     <title>Healthy Life</title>
 </head>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-
-        const btn = document.querySelector(".ia-send-btn");
-        const textarea = document.getElementById("iaPergunta");
-
-        const API_URL = "https://backendhealthylife-production.up.railway.app/api/ia/chat";
-
-        // Criar área para mostrar respostas
-        const chatArea = document.querySelector(".ia-chat-area");
-        const respostaBox = document.createElement("div");
-        respostaBox.classList.add("ia-resposta");
-        chatArea.appendChild(respostaBox);
-
-        btn.addEventListener("click", async () => {
-            const pergunta = textarea.value.trim();
-
-            if (!pergunta) {
-                respostaBox.innerHTML = "<p style='color:red;'>Digite uma pergunta primeiro.</p>";
-                return;
-            }
-
-            respostaBox.innerHTML = "<p><em>Aguarde... consultando IA 🔄</em></p>";
-
-            try {
-                const resposta = await fetch(API_URL, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({ mensagem: pergunta })
-                });
-
-                const data = await resposta.json();
-
-                if (data.resposta) {
-                    respostaBox.innerHTML = `
-                    <h3>Resposta da IA:</h3>
-                    <p>${data.resposta}</p>
-                `;
-                } else {
-                    respostaBox.innerHTML = "<p style='color:red;'>Erro ao processar resposta.</p>";
-                }
-
-            } catch (error) {
-                console.log(error);
-                respostaBox.innerHTML = "<p style='color:red;'>Erro ao conectar ao servidor.</p>";
-            }
-        });
-
-    });
-</script>
-
-
-
-
-
 <body>
 
     <header>
@@ -202,6 +145,86 @@
         </div>
     </footer>
 
+    <script>
+        const API_URL = "https://backendhealthylife-production.up.railway.app";
+
+        // ------------------------------
+        // 🔐 LOGIN – SALVA TOKEN
+        // ------------------------------
+        async function fazerLogin(email, senha) {
+            try {
+                const res = await fetch(`${API_URL}/api/users/login`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, senha })
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    alert("Erro no login: " + data.message);
+                    return;
+                }
+
+                // Salva o token no navegador
+                localStorage.setItem("token", data.token);
+
+                alert("Login feito com sucesso!");
+            } catch (err) {
+                console.error(err);
+                alert("Erro ao conectar ao servidor.");
+            }
+        }
+
+        // ------------------------------
+        // 🤖 ENVIAR PERGUNTA PARA A IA
+        // ------------------------------
+        const btnEnviar = document.querySelector(".ia-send-btn");
+        const inputPergunta = document.getElementById("iaPergunta");
+
+        btnEnviar.addEventListener("click", async () => {
+            const pergunta = inputPergunta.value.trim();
+
+            if (!pergunta) {
+                alert("Digite sua pergunta!");
+                return;
+            }
+
+            const token = localStorage.getItem("token");
+
+            if (!token) {
+                alert("Você precisa fazer login antes de usar a IA.");
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_URL}/api/ia/chat`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}` // 🔥 token enviado aqui
+                    },
+                    body: JSON.stringify({ mensagem: pergunta })
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    alert("Erro: " + data.error);
+                    return;
+                }
+
+                alert("Resposta da IA:\n\n" + data.resposta);
+
+            } catch (error) {
+                console.error(error);
+                alert("Erro ao conectar com a IA.");
+            }
+        });
+    </script>
+
+
 </body>
+
 
 </html>

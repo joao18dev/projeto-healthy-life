@@ -7,69 +7,104 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Healthy Life</title>
+    <title>Healthy Life - Cadastro</title>
 </head>
 
 <body>
+
     <div class="container">
         <div class="form-image">
             <img src="img/ods.png" alt="">
         </div>
 
         <div class="form">
-            <form action="#">
+            <form id="formCadastro">
                 <div class="form-header">
                     <div class="title">
-                        <h1>
-                            Cadastre-se
-                        </h1>
+                        <h1>Cadastre-se</h1>
+                    </div>
+                </div>
+
+                <div class="input-group">
+
+                    <div class="input-box">
+                        <label for="nome">Nome</label>
+                        <input id="nome" type="text" placeholder="Digite seu nome" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" placeholder="Digite seu Email" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="senha">Senha</label>
+                        <input id="senha" type="password" placeholder="Digite sua senha" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="confirmarSenha">Confirmar Senha</label>
+                        <input id="confirmarSenha" type="password" placeholder="Confirme sua senha" required>
                     </div>
 
                 </div>
-
-                <form action="backendhealthylife-production.up.railway.app">
-
-                    <div class="input-group">
-                        <div class="input-box">
-                            <label for="firstname">Nome</label>
-                            <input id="firstname" type="text" name="firstname" placeholder="Digite seu primeiro nome"
-                                required>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="email">Email</label>
-                            <input id="email" type="email" name="" placeholder="Digite seu Email" required>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="password">Senha</label>
-                            <input id="password" type="password" name="password" placeholder="Digite sua senha"
-                                required>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="Confirmpassword">Confirme sua Senha</label>
-                            <input id="Confirmpassword" type="password" name="Confirmpassword"
-                                placeholder="Confirme sua senha" required>
-                        </div>
-                    </div>
-
-                </form>
-
 
                 <div class="continue-button">
-                    <a href="../principal/index.html">
-                        <button> Continuar </button>
-                    </a>
+                    <button type="submit">Cadastrar</button>
                 </div>
+
             </form>
         </div>
     </div>
+
+    <script>
+        const API_URL = "https://backendhealthylife-production.up.railway.app";
+
+        document.getElementById("formCadastro").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const nome = document.getElementById("nome").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const senha = document.getElementById("senha").value.trim();
+            const confirmarSenha = document.getElementById("confirmarSenha").value.trim();
+
+            if (senha !== confirmarSenha) {
+                alert("As senhas não coincidem!");
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_URL}/api/users/register`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ nome, email, senha })
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    alert("Erro: " + data.message);
+                    return;
+                }
+
+                // Salva token no navegador
+                localStorage.setItem("token", data.token);
+
+                alert("Cadastro realizado com sucesso!");
+
+                // Redireciona para a página principal
+                window.location.href = "../principal/index.html";
+
+            } catch (error) {
+                console.error(error);
+                alert("Erro ao conectar ao servidor.");
+            }
+        });
+    </script>
+
 </body>
 
 </html>

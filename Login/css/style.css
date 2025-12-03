@@ -149,11 +149,9 @@ body {
   border: none;
   border-radius: 30px;
   background-color: var(--terciaria);
-
-  padding: 0.7rem 2rem;
+  padding: 0.8rem 8rem;
   cursor: pointer;
   color: var(--background);
-
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 15px;
@@ -161,6 +159,27 @@ body {
 
 .continue-button button:hover {
   background-color: var(--muted);
+  transition: 0.4s;
+}
+
+.register-link{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.register-link p {
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 550;
+}
+
+.register-link a {
+  color: var(--terciaria);
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  background-color: var(--border);
   transition: 0.4s;
 }
 

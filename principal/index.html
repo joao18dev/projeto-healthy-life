@@ -4,62 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Healthy Life</title>
 </head>
 
 <body>
 
+    <!-- ---------------- HEADER ---------------- -->
     <header>
-
         <div class="interface">
             <div class="logo">
                 <a href="#">
                     <img src="img/image-logo.jpg" alt="">
-                    <h1> Healthy <br> Life</h1>
+                    <h1>Healthy <br> Life</h1>
                 </a>
             </div>
 
             <nav class="menu">
                 <ul>
-                    <li>
-                        <a href="#inicio">Início</a>
-                    </li>
-                    <li>
-                        <a href="#exercicios">Exercícios</a>
-                    </li>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#exercicios">Exercícios</a></li>
                 </ul>
             </nav>
-
         </div>
-
     </header>
 
+    <!-- ---------------- HERO ---------------- -->
     <main>
         <section id="inicio" class="topo-do-site">
             <div class="interface">
                 <div class="flex">
                     <div class="texto-topo">
-                        <h1>
-                            ODS 3 - Saúde e Bem-Estar
-                        </h1>
-                        <h2>
-                            Vença o <br>
-                            <span>Sedentarismo</span>
-                        </h2>
+                        <h1>ODS 3 - Saúde e Bem-Estar</h1>
+                        <h2>Vença o <br> <span>Sedentarismo</span></h2>
+
                         <p>
-                            Comece sua jornada para uma vida mais saudável e ativa. <br>
-                            Receba dicas diárias e guias de exercícios personalizados para transformar sua rotina e
-                            alcançar o bem-estar que você merece.
+                            Comece sua jornada para uma vida mais saudável e ativa.
+                            Receba dicas diárias e guias de exercícios personalizados para transformar sua rotina
+                            e alcançar o bem-estar que você merece.
                         </p>
                     </div>
+
                     <div class="img-topo">
                         <img src="img/ods.jpg" alt="">
                     </div>
@@ -68,51 +62,38 @@
         </section>
     </main>
 
+    <!-- ---------------- EXERCÍCIOS ---------------- -->
     <section id="exercicios" class="guia">
         <div class="exercicio">
-            <h1>
-                Exercícios
-            </h1>
+            <h1>Exercícios</h1>
         </div>
+
         <div class="apresentacao">
             <p>
-                Bem-vindo ao Guia de Exercícios Inteligente,
-                uma nova forma de cuidar do seu corpo com tecnologia e precisão. <br>
+                Bem-vindo ao Guia de Exercícios Inteligente, uma nova forma de cuidar do seu corpo
+                com tecnologia e precisão. <br><br>
                 Este guia foi desenvolvido para oferecer treinos personalizados, eficientes e acessíveis,
-                combinando <br>
-                ciência do movimento humano com o poder da Inteligência Artificial. <br>
-                <br>
-                Aqui, cada exercício, sugestão e ajuste é gerado a partir da análise do seu perfil,
-                objetivos e nível atual de condicionamento. <br>
-                A IA acompanha sua evolução, identifica pontos de melhoria e adapta o treinamento em tempo real, <br>
-                garantindo que você avance de maneira segura, consistente e motivadora. <br>
-                <br>
-                Seja você iniciante ou experiente,
-                este guia foi projetado para ser o seu parceiro diário na jornada do <br>
-                bem-estar — oferecendo orientação inteligente, <br>
-                feedback imediato e rotinas que realmente fazem sentido para você. <br>
-                <br>
-                Prepare-se para evoluir com um treino que entende você. <br>
-                Vamos começar?
+                combinando ciência do movimento humano com o poder da Inteligência Artificial. <br><br>
+                Aqui, cada exercício, sugestão e ajuste é gerado a partir da análise do seu perfil, objetivos
+                e nível de condicionamento. <br><br>
+                Prepare-se para evoluir com um treino que entende você. Vamos começar?
             </p>
         </div>
-
     </section>
 
+    <!-- ---------------- IA ---------------- -->
     <section id="IA" class="IA">
         <div class="ia-box">
 
             <h2>Assistente Inteligente</h2>
-            <p>Faça sua pergunta e receba orientação da nossa IA sobre treinos, alimentação e bem-estar.</p>
+            <p>Faça sua pergunta e receba orientação da IA sobre treinos, alimentação e bem-estar.</p>
 
             <div class="ia-chat-area">
-
                 <textarea id="iaPergunta" placeholder="Digite sua pergunta..." maxlength="300"></textarea>
-
                 <button class="ia-send-btn">Enviar Pergunta</button>
             </div>
 
-            <!-- 🟩 Caixa onde as respostas aparecerão -->
+            <!-- Caixa onde as respostas aparecem -->
             <div id="iaRespostas" class="ia-respostas">
                 <p class="placeholder">As respostas da IA aparecerão aqui...</p>
             </div>
@@ -120,44 +101,38 @@
         </div>
     </section>
 
-
-
-
-
+    <!-- ---------------- FOOTER ---------------- -->
     <footer>
         <div class="roda-pe">
+
             <div class="linha-rodape">
                 <div class="flex">
                     <div class="logo-rodape">
-                        <h1>
-                            Healthy Life
-                        </h1>
+                        <h1>Healthy Life</h1>
                         <p>
                             Sua plataforma completa para vencer o <br>
-                            sedentarismo e conquistar uma vida mais saudável e ativa.
+                            sedentarismo e conquistar uma vida mais saudável.
                         </p>
                     </div>
-                    <a href="https://www.instagram.com/healthy__lf?igsh=MW1wejA5ODU0Z3YzMA%3D%3D&utm_source=qr"><button>
-                            <i class="bi bi-instagram"></i>
-                        </button>
+
+                    <a href="https://www.instagram.com/healthy__lf?igsh=MW1wejA5ODU0Z3YzMA">
+                        <button><i class="bi bi-instagram"></i></button>
                     </a>
                 </div>
             </div>
 
             <div class="linha-rodape2">
-                <p class="mensagem">
-                    © 2025 Healthy Life. Todos os direitos reservados.
-                </p>
+                <p class="mensagem">© 2025 Healthy Life. Todos os direitos reservados.</p>
             </div>
+
         </div>
     </footer>
 
+    <!-- ---------------- SCRIPT ---------------- -->
     <script>
         const API_URL = "https://backendhealthylife-production.up.railway.app";
 
-        // ------------------------------
-        // 🔐 LOGIN – SALVA TOKEN
-        // ------------------------------
+        // ---------------- LOGIN ----------------
         async function fazerLogin() {
             const email = prompt("Digite seu e-mail:");
             const senha = prompt("Digite sua senha:");
@@ -181,7 +156,6 @@
                     return;
                 }
 
-                // Salva o token
                 localStorage.setItem("token", data.token);
 
                 alert("Login feito com sucesso!");
@@ -192,7 +166,7 @@
             }
         }
 
-        // Criar botão de login se não estiver logado
+        // Botão login aparece se não estiver logado
         document.addEventListener("DOMContentLoaded", () => {
             const token = localStorage.getItem("token");
 
@@ -206,26 +180,27 @@
             }
         });
 
-        // ------------------------------
-        // 🤖 ENVIAR PERGUNTA PARA A IA
-        // ------------------------------
+        // ---------------- IA CHAT ----------------
         const btnEnviar = document.querySelector(".ia-send-btn");
         const inputPergunta = document.getElementById("iaPergunta");
+        const boxResposta = document.getElementById("iaRespostas");
 
         btnEnviar.addEventListener("click", async () => {
             const pergunta = inputPergunta.value.trim();
 
             if (!pergunta) {
-                alert("Digite sua pergunta!");
+                boxResposta.innerHTML = "<p>⚠️ Digite uma pergunta antes de enviar.</p>";
                 return;
             }
 
             const token = localStorage.getItem("token");
 
             if (!token) {
-                alert("Você precisa fazer login antes de usar a IA.");
+                boxResposta.innerHTML = "<p>⚠️ Você precisa fazer login para usar a IA.</p>";
                 return;
             }
+
+            boxResposta.innerHTML = "<p>⏳ A IA está pensando...</p>";
 
             try {
                 const res = await fetch(`${API_URL}/api/ia/chat`, {
@@ -240,22 +215,18 @@
                 const data = await res.json();
 
                 if (!res.ok) {
-                    alert("Erro: " + data.error);
+                    boxResposta.innerHTML = `<p>Erro: ${data.error}</p>`;
                     return;
                 }
 
-                alert("Resposta da IA:\n\n" + data.resposta);
+                boxResposta.innerHTML = data.resposta.replace(/\n/g, "<br>");
 
             } catch (error) {
                 console.error(error);
-                alert("Erro ao conectar com a IA.");
+                boxResposta.innerHTML = "<p>❌ Erro ao conectar com a IA.</p>";
             }
         });
     </script>
 
-
-
 </body>
-
-
 </html>

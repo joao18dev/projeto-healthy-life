@@ -199,18 +199,18 @@ header a:hover {
   font-size: 1rem;
   resize: none;
   outline: none;
-  background: #ffffffd9;
+  background: var(--border);
 }
 
 /* Botão enviar */
 .ia-send-btn {
-  background: white;
+  background: var(--border);
   padding: 14px;
   width: 100%;
   border-radius: 12px;
   border: none;
   font-size: 1.1rem;
-  color: var(--danger);
+  color: var(--muted-foreground);
   font-weight: 700;
   cursor: pointer;
   transition: .3s;
